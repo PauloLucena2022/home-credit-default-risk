@@ -1,20 +1,19 @@
-# 🏦 Home Credit Default Risk — Credit Scoring Pipeline
+# Home Credit Default Risk — Credit Scoring Pipeline
 
-Project developed for the **Home Credit Default Risk** competition, part of the **GCI (Global Consumer Intelligence) — Data Science & Deep Learning** course offered by the **University of Tokyo** (via the Omnicampus platform).
+Project developed for the **Home Credit Default Risk** competition, part of the **GCI — Data Science & Deep Learning** course offered by the **University of Tokyo** (via the Omnicampus platform).
 
 The goal of this challenge is to predict the probability of default (`TARGET`) for loan applicants using imbalanced tabular financial data, evaluated with **ROC-AUC** as the primary metric.
 
 ---
 
-## 🎯 Project Overview
+## Project Overview
 
 * **Dataset:** 171,202 training samples with a binary target (`0` = repaid on time, `1` = payment difficulties / default).
 * **Validation Strategy:** `5-Fold Stratified Cross-Validation` evaluated via **ROC-AUC**, generating combined **Out-of-Fold (OOF)** ROC curves for a fair comparison across models.
-* **Data Leakage Prevention:** All imputation and feature scaling (`StandardScaler`) are strictly fit on training folds (or encapsulated within `scikit-learn` `Pipeline` objects).
 
 ---
 
-## 🛠️ Preprocessing & Feature Engineering
+## Preprocessing & Feature Engineering
 
 In credit risk modeling, missing values frequently carry meaningful domain signals (**MNAR — Missing Not At Random**). Instead of applying a one-size-fits-all imputation, tailored strategies were designed per feature:
 
@@ -27,22 +26,20 @@ In credit risk modeling, missing values frequently carry meaningful domain signa
 
 ---
 
-## 📊 Model Benchmark (5-Fold Stratified CV)
+## Model Benchmark (5-Fold Stratified CV)
 
 All models were evaluated under the exact same cross-validation split (`random_state=99`). `StandardScaler` was applied exclusively to scale-sensitive models (KNN), leaving tree-based models on their original scale.
 
 | Model | Mean ROC-AUC | Std ROC-AUC | Notes |
 | :--- | :---: | :---: | :--- |
-| **CatBoost** 🏆 | *Best Model* | — | Selected for final submission |
+| **CatBoost** | *Best Model* | — | Selected for final submission |
 | **XGBoost** | `0.74864` | `± 0.00309` | Strong tabular baseline |
 | **Random Forest** | `0.73817` | `± 0.00213` | Solid non-linear baseline |
 | **KNN** | `0.65405` | `± 0.00449` | Distance-based baseline |
 
-*(Update the exact CatBoost and LightGBM scores in the table above with the final values from your notebook.)*
-
 ---
 
-## 💻 Tech Stack
+## Tech Stack
 
 * **Language:** Python 3
 * **Data Manipulation:** `pandas`, `numpy`
@@ -51,7 +48,7 @@ All models were evaluated under the exact same cross-validation split (`random_s
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 1. Clone the repository:
    ```bash
