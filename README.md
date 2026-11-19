@@ -46,16 +46,4 @@ All models were evaluated under the exact same cross-validation split (`random_s
 * **Machine Learning:** `scikit-learn`, `xgboost`, `catboost`, `lightgbm`
 * **Visualization:** `matplotlib`
 
----
 
-## How to Run
-
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/PauloLucena2022/](https://github.com/PauloLucena2022/)<repository-name>.git
-   cd <repository-name>
-Install the required dependencies:
-
-Bash
-pip install pandas numpy scikit-learn xgboost catboost lightgbm matplotlib
-Run the main notebook to reproduce the preprocessing pipeline, 5-Fold CV benchmark, comparative OOF ROC curve plot, and the final output/submission.csv file.
